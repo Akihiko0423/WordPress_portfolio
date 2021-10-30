@@ -1,0 +1,66 @@
+@use "../../foundation/mixin" as v;
+
+.p-header{
+    position:fixed;
+    width:100%;
+    background-color:white;
+    z-index:3;
+    &__inner{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        width:95%;
+        margin:0 auto;
+        &--btn{
+            display:none;
+            @include v.tab{
+                display:flex;
+            }
+        }
+        &--nav{
+            @include v.tab{
+                display:none;
+                position:absolute;
+                background-color: rgb(255, 255, 255);
+                width:100%;
+                z-index:100;
+                top:48px;
+                left:0;
+            }
+            ul{
+                display:flex;
+                align-items: center;
+                @include v.tab{
+                    display:block;
+                }
+                li{
+                    padding:0 15px;
+                    position:relative;
+                    &::after{
+                        position: absolute;
+                        content: "";
+                        width: 0%;
+                        height: 1px;
+                        top: 22px;
+                        left: 12.5%;
+                        background-color: black;
+                        opacity:0.8;
+                        transition: all 0.3s;     
+                    }
+                    &:hover{
+                        &::after{
+                            width:75%;
+                            @include v.tab{
+                                width:0%;
+                            }   
+                        }
+                    }
+                    @include v.tab{
+                        padding:15px;
+                        border-bottom:1px solid rgb(170, 170, 170);
+                    }
+                }
+            }
+        }
+    }
+}
