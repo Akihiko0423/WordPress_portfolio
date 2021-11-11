@@ -13,7 +13,9 @@ a{
 
 body{
   overflow-x: hidden;
-  font-family:'MS Pゴシック',sans-serif;
+  font-family:serif,sans-serif;
+  font-weight:600;
+  background-color: rgba(211, 233, 214, 0.582);
 }
 
 //fadeinの初期設定
@@ -21,6 +23,7 @@ body{
   opacity: 0;
   transform: translateY(20px);
   transition: all 1s;
+
 }
 
 

@@ -1,6 +1,6 @@
 @use "../../foundation/mixin" as v;
 
-.p-contact{
+.p-page{
     &__inner{
         margin:0 auto;
         width:70%;
@@ -24,7 +24,7 @@
             }
         }
         &__detail{
-            padding:190px 0;
+            padding:100px 0;
             .c-contact-link{
                 color: blue;
             }

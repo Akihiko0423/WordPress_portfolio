@@ -12,3 +12,15 @@
         padding-bottom:5px;
     }
 }
+
+.c-footer-link-sub{
+    position:fixed;
+    bottom:0%;
+    left:2%;
+    z-index:1000;
+    display:flex;
+    flex-direction: column;
+    a{
+        padding-bottom:5px;
+    }
+}

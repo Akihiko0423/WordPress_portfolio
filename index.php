@@ -1,29 +1,24 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8">
-    <title>Akihiko-portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  </head>
-    
-  <body>
+<?php get_header(); ?>  
+  <body<?php body_class(); ?>>
+  <?php wp_body_open(); ?>
     <header class = "l-header p-header">
       <div class = "p-header__inner">
-        <h1 class = "p-header__inner--logo">logo</h1>
+        <h1 class = "p-header__inner--logo"><a href = "<?php echo esc_url( home_url( '/' ) ); ?>">Akihiko's Portfolio</a></h1>
         <div id = "slidetoggle_button" class="p-header__inner--btn c-hamburger-menu">
           <span class="c-hamburger-menu__line"></span>
         </div>
         <nav id = "slidetoggle_menu" class = "p-header__inner--nav">
           <ul>
-            <li><a class = "menu-btn" href="#">Home</a></li>
+            <li><a class = "menu-btn" href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a></li>
             <li><a class = "menu-btn" href="#about">About Me</a></li>
             <li><a class = "menu-btn" href="#skills">Skills</a></li>
             <li><a class = "menu-btn" href="#works">Works</a></li>
             <li><a class = "menu-btn" href="#price">Price</a></li>
-            <li><a class = "menu-btn" href="#contact">Contact</a></li>
+            <?php
+              $page = get_page_by_path( 'contact' );
+              $page_id = $page->ID;
+            ?>
+            <li><a class = "menu-btn" href="<?php echo get_permalink($page_id);?>">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -31,8 +26,8 @@
 
     <main class = "l-main">
       <div class = "p-main-visual">
-        <video id="bg-video" src="video/video.mp4" loop autoplay muted></video>
-        <img src="img/main-visual.jpg" alt="main-visual">
+        <video id="bg-video" src="<?php echo get_template_directory_uri(); ?>/video/forest.mp4" loop autoplay muted></video>
+        <img src="<?php echo get_template_directory_uri(); ?>/img/forest_Moment.jpg" alt="main-visual">
         <h1>Akihiko<br>Webコーディング</h1>
       </div>
 
@@ -40,12 +35,12 @@
         <div class = "p-about__inner ">
           <h2>About Me</h2>
           <div class = "p-about__inner__detail fadein">
-            <img src="img/my-profile.jpg" alt="myprofile">
+            <img src="<?php echo get_template_directory_uri(); ?>/img/my-profile.jpg" alt="myprofile">
             <p>はじめまして。鳥取県出身の大学生、Akihikoです。<br>
-              現在は岡山大学の工学部に在籍しており、通信についての勉強をしております。<br>
+              現在は岡山大学の工学部に在籍して、無線通信についての勉強をしております。<br>
               2021年6月よりWebサイト制作の学習を始め、
               主にコーディングやWordPress製作を受注しています。<br>
-              またTwitterの方でも学習記録やWeb製作に関する情報を発信しています。
+              またTwitterでも学習記録やWeb製作に関する情報を発信しています。
               どうぞよろしくお願いいたします。
             </p>
           </div>
@@ -60,7 +55,7 @@
                 <li class = "fadein">  <div class = "p-skills-list__item"><i class="fab fa-html5 fa-7x c-icon"></i><p>HTML</p></div>    </li>
                 <li class = "fadein"> <div class = "p-skills-list__item"><i class="fab fa-css3-alt fa-7x c-icon"></i><p>CSS</p></div>  </li>
                 <li class = "fadein">  <div class = "p-skills-list__item"><i class="fab fa-sass fa-7x c-icon"></i><p>Sass</p></div>      </li>
-                <li class = "fadein">  <div class = "p-skills-list__item"><img class = "c-icon jquery" src="img/jquery-icon.jpg" alt="#"><p class = "jquery-text">jQuery</p></div>  </li>
+                <li class = "fadein">  <div class = "p-skills-list__item"><img class = "c-icon jquery" src="<?php echo get_template_directory_uri(); ?>/img/jquery-icon.jpg" alt="#"><p class = "jquery-text">jQuery</p></div>  </li>
               </ul>
               <ul class = "p-skills-list">
                 <li class = "fadein">  <div class = "p-skills-list__item"><i class="fas fa-mobile fa-7x c-icon"></i><p>Responsive</p></div></li>
@@ -68,11 +63,13 @@
                 <li class = "fadein">  <div class = "p-skills-list__item"><i class="fab fa-wordpress-simple fa-7x c-icon"></i><p>WordPress</p></div></li>
                 <li class = "fadein">  <div class = "p-skills-list__item"><i class="fab fa-github fa-7x c-icon"></i><p>git/github</p></div></li>
               </ul>
+              <ul class = "p-skills-text">
+                <li>レスポンシブ対応(PC、タブレット、スマートフォンなどのデバイス)</li>
+                <li>DartSassを用いたスタイリング</li>
+                <li>保守性の高いコーディング(FLOCSSによるCSS設計)</li>
+                <li>いただいたデザインデータを元にHTML/CSS、jQueryでコーディングをした後、WordPress化し運用しやすいWebサイトを構築</li>
+              </ul>
           </div>
-          <p>PC、タブレット、スマートフォンなどのデバイスのレスポンシブに対応できます。<br>
-            DartSassを用いてスタイリングを行い、FLOCSSによるCSS設計を取り入れることで保守性の高いコーディングを行います。
-            またいただいたデザインデータを元にHTML/CSS、jQueryでコーディングを行った後、WordPress化し運用しやすいWebサイトを構築いたします。
-          </p>
         </div>
       </section>
 
@@ -80,32 +77,47 @@
         <div class = "p-works__inner">
           <h2>Works</h2>
           <div class = "p-works__inner__detail">
-            <div class = "p-card fadein">
-              <div class = "p-card__visual">
-                <img src="img/mokku_hamburger-site.png" alt="#">
-              </div>
-              <div class = "p-card__text">
-                  <h3>架空ハンバーガーサイト</h3>
-                  <p>製作ツール:HTML&CSS、Sass、jQuery、WordPress</p>
-                  <p>製作期間:1ヶ月</p>
-                  <button class = "c-button p-card__text__btn">
-                    <a href="#">詳しく見る</a>
-                  </button>
-              </div>
-            </div>
-            <div class = "p-card fadein">
-              <div class = "p-card__visual">
-                <img src="img/mokku_RaiseTech.png" alt="#">
-              </div>
-              <div class = "p-card__text">
-                <h3>RaiseTech公式サイト模写</h3>
-                <p>製作ツール:HTML&CSS、Sass</p>
-                <p>製作期間:1ヶ月</p>
-                <button class = "c-button p-card__text__btn">
-                  <a href="#">詳しく見る</a>
-                </button>
-              </div>
-            </div>
+            <?php if( have_posts() ) : ?>
+              <?php while( have_posts() ) : the_post(); ?>
+              <article class = "p-card fadein">
+                <div class = "p-card__visual">
+                  <?php the_post_thumbnail('large'); ?>
+                </div>
+                <div class = "p-card__text">
+                    <h3><?php the_title(); ?></h3>
+                    <p>製作ツール:
+                      <?php 
+                      if(function_exists('get_field')){
+                        $tools = get_field('tool');
+                        foreach($tools as $key => $tool){
+                          echo $tool;
+                          if($tool !== end($tools)){
+                            echo'、';
+                          }
+                        }                        
+                      }
+                      else{
+                        echo "Advanced Custom Fields利用しています。プラグインのAdvanced Custom Fieldsを有効化してください。";
+                      }
+                      ?>
+                    </p>
+                    <p>製作期間: 
+                      <?php
+                        if(function_exists('get_field')){
+                          the_field('period');
+                        }
+                        else{
+                          echo "Advanced Custom Fields利用しています。プラグインのAdvanced Custom Fieldsを有効化してください。";
+                        }
+                      ?>
+                    </p>
+                    <button class = "c-button p-card__text__btn">
+                      <a href="<?php the_permalink(); ?>">詳しく見る</a>
+                    </button>
+                </div>
+              </article>
+              <?php endwhile; ?>
+              <?php endif; ?>
           </div>
         </div>
       </section>
@@ -128,7 +140,7 @@
             </div>
           </div>
           <p>※料金はすべて税込みとなっております。<br>
-            当方デザインのご依頼は承っていません。<br>
+            デザインのご依頼は承っていません。<br>
             また料金は目安なのでまずはお気軽にご相談ください。
           </p>
         </div>
@@ -137,7 +149,7 @@
         <div class = "p-contact__inner">
           <h2>Contact</h2>
           <div class = "p-contact__inner__detail">
-            <p>お問い合わせフォームが入ります</p>
+            <p>お問い合わせページはこちらの<a class = "c-contact-link" href="<?php echo get_permalink($page_id);?>">リンク</a>から</p>
           </div>
         </div>
       </section>
@@ -149,10 +161,4 @@
       <a href="https://github.com/Akihiko0423"><i class="fab fa-github fa-2x c-icon"></i></a>
     </div>
 
-    <footer>
-      <p>© Akihiko 2021</p>
-    </footer>
-
-    <script src="js/script.js"></script>
-  </body>
-</html>
+<?php get_footer(); ?>

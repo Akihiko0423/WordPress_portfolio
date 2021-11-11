@@ -61,9 +61,5 @@ jQuery(function($) {
           $('.c-footer-link').css('transform','translateY(0)');
         }
       });
-
     });
-  
-
-
 });
