@@ -42,12 +42,12 @@
                 display:flex;
                 padding:40px 20px;
                 justify-content: space-between;
-                @include v.tab{
+                @include v.skill{
                     flex-direction: column;
                 }
                 &__visual{
                     width:50%;
-                    @include v.tab{
+                    @include v.skill{
                         width:100%;
                     }
                     img{
@@ -57,7 +57,7 @@
                 }
                 &__text{
                     width:45%;
-                    @include v.tab{
+                    @include v.skill{
                         width:100%;
                         padding-top:20px;
                     }

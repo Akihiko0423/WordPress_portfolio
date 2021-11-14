@@ -26,8 +26,7 @@
 
     <main class = "l-main">
       <div class = "p-main-visual">
-        <video id="bg-video" src="<?php echo get_template_directory_uri(); ?>/video/forest.mp4" loop autoplay muted></video>
-        <img src="<?php echo get_template_directory_uri(); ?>/img/forest_Moment.jpg" alt="main-visual">
+        <video id="bg-video" src="<?php echo get_template_directory_uri(); ?>/video/forest.mp4" playsinline loop autoplay muted ></video>
         <h1>Akihiko<br>Webコーディング</h1>
       </div>
 
@@ -39,8 +38,8 @@
             <p>はじめまして。鳥取県出身の大学生、Akihikoです。<br>
               現在は岡山大学の工学部に在籍して、無線通信についての勉強をしております。<br>
               2021年6月よりWebサイト制作の学習を始め、
-              主にコーディングやWordPress製作を受注しています。<br>
-              またTwitterでも学習記録やWeb製作に関する情報を発信しています。
+              主にコーディングやWordPress制作を受注しています。<br>
+              またTwitterでも学習記録やWeb制作に関する情報を発信しています。
               どうぞよろしくお願いいたします。
             </p>
           </div>
@@ -85,7 +84,7 @@
                 </div>
                 <div class = "p-card__text">
                     <h3><?php the_title(); ?></h3>
-                    <p>製作ツール:
+                    <p>制作ツール:
                       <?php 
                       if(function_exists('get_field')){
                         $tools = get_field('tool');
@@ -101,7 +100,7 @@
                       }
                       ?>
                     </p>
-                    <p>製作期間: 
+                    <p>制作期間: 
                       <?php
                         if(function_exists('get_field')){
                           the_field('period');
